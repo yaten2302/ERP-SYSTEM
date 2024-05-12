@@ -6,10 +6,10 @@ This repository hosts the code for an enterprise resource planning (ERP) softwar
 
 ## Key Features
 
-**Attendance Tracking:** Allows teachers to mark attendance for students quickly and accurately. <br>
-**Real-time Updates:** Attendance data is updated in real-time, providing administrators with the latest information.<br>
-**User-friendly Interface:** Intuitive design makes it easy for teachers and administrators to navigate and use the software effectively.<br>
-**Customizable Reports:** Generate customizable reports on attendance trends, absenteeism rates, and more, aiding in data-driven decision-making.<br>
+1. **Attendance Tracking:** Allows teachers to mark attendance for students quickly and accurately. <br>
+2. **Real-time Updates:** Attendance data is updated in real-time, providing administrators with the latest information.<br>
+3. **User-friendly Interface:** Intuitive design makes it easy for teachers and administrators to navigate and use the software effectively.<br>
+4. **Customizable Reports:** Generate customizable reports on attendance trends, absenteeism rates and more.<br>
 
 ## Usage
 
