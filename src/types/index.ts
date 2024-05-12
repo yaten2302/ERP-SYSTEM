@@ -1,1 +1,5 @@
-/* all types goes here */
+export type User = {
+  email: string;
+  password: string;
+  Designation: string;
+};

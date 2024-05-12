@@ -13,3 +13,53 @@
     @apply bg-light-1 text-black min-h-screen font-ubuntu;
   }
 }
+
+@layer utilities {
+  /* Typography */
+  .h1-mobile {
+    @apply text-[20px] font-bold tracking-wide leading-[135%] text-center;
+  }
+  .h3-mobile {
+    @apply text-[17px] font-medium text-center;
+  }
+  .p-mobile {
+    @apply text-center text-light-3;
+  }
+  .h1-tablet {
+    @apply text-[30px] font-bold tracking-wide leading-[145%] text-center;
+  }
+  .h3-tablet {
+    @apply text-[25px] font-medium text-center;
+  }
+  .p-tablet {
+    @apply text-center text-light-3 text-[16px];
+  }
+  .h1-laptop {
+    @apply;
+  }
+  .h3-laptop {
+    @apply;
+  }
+  .p-laptop {
+    @apply;
+  }
+}
+
+@layer components {
+  /* SHADCN COMPONENTS */
+  /* Form */
+  /* for light mode */
+  .shad-form_label-light {
+    @apply text-black tablet:text-[17px] !important;
+  }
+  .shad_input-light {
+    @apply h-12 bg-input-bg-light border-none placeholder:text-light-4 w-[300px] focus:brightness-95 focus:ring-0 tablet:text-[15px] !important;
+  }
+  .shad_form-message {
+    @apply text-red !important;
+  }
+  /* Buttons */
+  .shad_button-primary {
+    @apply bg-primary-500 text-light-1 flex gap-2 !important;
+  }
+}
