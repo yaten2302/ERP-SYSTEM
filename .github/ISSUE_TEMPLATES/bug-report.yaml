@@ -1,0 +1,65 @@
+name: "🐛 Bug Report"
+description: I would like to report a bug.
+title: "[🐛 BUG] <write a small description here>"
+labels: ["💥Malfunction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        - Thank you for using ERP SYSTEM and taking the time to report a bug! 😄
+        - Please try to spend some time to understand the bug and reproduce it.
+        - If any heading is not applicable, please set it to `NA`.
+  - type: textarea
+    id: something_wrong
+    attributes:
+      label: "What went wrong? 🤔"
+      description: Please provide a detailed description of the issue you encountered. Be clear and concise in explaining what is not working as expected.
+      placeholder: The description of the issue you experienced in detail, including any relevant information or context.
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: "Expected Behavior"
+      description: Please describe how you expected the system to behave when you encountered the issue.
+      placeholder: The description of the behavior that you expected to see when encountering the issue.
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: "Steps to Reproduce Issue"
+      description: If possible, please share the steps to reproduce the issue.
+      value: |
+        1. A code fragment
+        2. And/or configuration files or code
+  - type: textarea
+    id: solution_proposed
+    attributes:
+      label: "Expected behavior"
+      description: If you have any ideas of the expected behavior, please provide them in this section.
+      placeholder: The description of the expected behavior of the problem.
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Screenshots"
+      description: If applicable, add screenshots to help explain your problem.
+      value: |
+        ![DESCRIPTION](LINK.png)
+      render: bash
+    validations:
+      required: false
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: "Browsers"
+      description: What browser(s) are you seeing the problem on?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Microsoft Edge
+        - Opera
+        - Brave
+        - Other
+    validations:
+      required: false
