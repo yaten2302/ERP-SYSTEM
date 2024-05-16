@@ -35,13 +35,13 @@
     @apply text-center text-light-3 text-[16px];
   }
   .h1-laptop {
-    @apply;
+    @apply text-[40px] font-bold tracking-wide leading-[150%] text-center;
   }
   .h3-laptop {
-    @apply;
+    @apply text-[33px] font-medium text-center;
   }
   .p-laptop {
-    @apply;
+    @apply text-center text-light-3 text-[18px];
   }
 }
 
@@ -53,7 +53,7 @@
     @apply text-black tablet:text-[17px] !important;
   }
   .shad_input-light {
-    @apply h-12 bg-input-bg-light border-none placeholder:text-light-4 w-[300px] focus:brightness-95 focus:ring-0 tablet:text-[15px] !important;
+    @apply h-12 bg-input-bg-light border-none placeholder:text-light-4 w-[300px] focus:brightness-95 focus:ring-0 tablet:text-[15px] tablet:w-[450px] !important;
   }
   .shad_form-message {
     @apply text-red !important;

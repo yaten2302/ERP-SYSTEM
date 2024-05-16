@@ -52,16 +52,18 @@ const SigninForm = () => {
           <img
             src="/assets/vips_logo.svg"
             alt="vips_logo"
-            className="h-[55px] w-[55px] tablet:h-[75px] tablet:w-[75px]"
+            className="h-[55px] w-[55px] tablet:h-[75px] tablet:w-[75px] laptop:h-[80px] laptop:w-[80px]"
           />
-          <h1 className="h1-mobile tablet:h1-tablet">
+          <h1 className="h1-mobile tablet:h1-tablet laptop:h1-laptop">
             Vivekananda Institute Of Professional Studies
           </h1>
         </div>
 
         <div className="flex flex-col gap-2 mt-4">
-          <h3 className="pt-6 h3-mobile tablet:h3-tablet">Welcome Back👋</h3>
-          <p className="p-mobile tablet:p-tablet">
+          <h3 className=" h3-mobile tablet:h3-tablet laptop:h3-laptop">
+            Welcome Back👋
+          </h3>
+          <p className="p-mobile tablet:p-tablet laptop:p-laptop">
             To use VIPS Vanguard, please enter your details
           </p>
         </div>
