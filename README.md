@@ -1,4 +1,4 @@
-# ERP - SchoolERP Attendance Management
+# ERP - Attendance Management System
 
 ## Overview
 
