@@ -5,5 +5,4 @@ export const SignInValidiation = z.object({
   password: z
     .string()
     .min(8, { message: "Password must be atleast 8 characters." }),
-  Designation: z.string(),
 });
