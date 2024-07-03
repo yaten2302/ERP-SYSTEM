@@ -1,9 +1,13 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-import { SignInValidiation } from "@/lib/validations";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { signInUser } from "@/lib/supabase/api";
+import { SignInValidiation } from "@/lib/validations";
 import {
   Form,
   FormControl,
@@ -11,18 +15,13 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { signInUser } from "@/lib/supabase/api";
-import { useNavigate } from "react-router-dom";
+import { useUserContext } from "@/context/AuthContext";
 
 const SigninForm = () => {
+  useEffect(() => {
+    document.title = "Sign in";
+  }, []);
+
   const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof SignInValidiation>>({
@@ -30,19 +29,21 @@ const SigninForm = () => {
     defaultValues: {
       email: "",
       password: "",
-      Designation: "",
     },
   });
 
-  //function to be run on clicking on submit button
+  const { isStudent } = useUserContext();
+
+  //function to be run on clicking the sign-in button
   async function onSubmit(values: z.infer<typeof SignInValidiation>) {
     const session = await signInUser(values);
+
     if (!session) {
       console.log("signin failed");
       return;
+    } else {
+      isStudent ? navigate("/student") : navigate("/teacher");
     }
-
-    navigate("/");
   }
 
   return (
@@ -111,43 +112,6 @@ const SigninForm = () => {
                 )}
               />
 
-              <FormField
-                control={form.control}
-                name="Designation"
-                render={({ field }) => {
-                  return (
-                    <FormItem className="flex flex-col w-full justify-start items-start pb-4">
-                      <FormLabel className="shad-form_label-light">
-                        Designation
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Designation" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem
-                            value="Teacher"
-                            className="shad_input-light"
-                          >
-                            Teacher
-                          </SelectItem>
-                          <SelectItem
-                            value="Student"
-                            className="bg-light-2 pt-2 rounded-md"
-                          >
-                            Student
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  );
-                }}
-              />
               <Button type="submit" className="shad_button-primary w-full">
                 Log in
               </Button>
