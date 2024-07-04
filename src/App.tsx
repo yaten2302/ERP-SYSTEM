@@ -17,7 +17,7 @@ function App() {
 
         {/* private routes */}
         <Route element={<RootLayout />}>
-          <Route index path="/teacher" element={<TeacherHome />} />
+          <Route path="/teacher" element={<TeacherHome />} />
           <Route path="/student" element={<StudentHome />} />
         </Route>
       </Routes>
