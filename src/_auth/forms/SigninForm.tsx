@@ -16,6 +16,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { useUserContext } from "@/context/AuthContext";
+import { useToast } from "@/components/ui/use-toast";
 
 const SigninForm = () => {
   useEffect(() => {
@@ -34,13 +35,17 @@ const SigninForm = () => {
 
   const { isStudent } = useUserContext();
 
+  const { toast } = useToast();
+
   //function to be run on clicking the sign-in button
   async function onSubmit(values: z.infer<typeof SignInValidiation>) {
     const session = await signInUser(values);
 
     if (!session) {
-      console.log("signin failed");
-      return;
+      return toast({
+        title: "Sign in failed. Please try again",
+        variant: "destructive",
+      });
     } else {
       isStudent ? navigate("/student") : navigate("/teacher");
     }
