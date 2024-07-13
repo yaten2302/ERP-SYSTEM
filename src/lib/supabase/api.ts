@@ -1,3 +1,4 @@
+import { teacher_type } from "@/types";
 import { supabase } from "./config";
 
 //sign-in
@@ -42,9 +43,9 @@ export async function checkStudentOrTeacher(loggedInUser: string) {
     const { data } = await supabase
       .from("Students")
       .select("student_email")
-      .match({ student_email: loggedInUser });
+      .eq("student_email", loggedInUser);
 
-    if (data) {
+    if (data?.length > 0) {
       return true;
     } else {
       return false;
@@ -52,4 +53,71 @@ export async function checkStudentOrTeacher(loggedInUser: string) {
   } catch (error) {
     console.log(error);
   }
+}
+
+//get details of signed in student/teacher from database
+export async function getUserFromDB(user: string, isStudent: boolean) {
+  try {
+    // isStudent - check if the signed in user is a student, if true, then set student details
+    if (isStudent) {
+      const { data } = await supabase
+        .from("Students")
+        .select(
+          `
+        student_name,
+        student_email,
+        student_enroll_num,
+        Sections(
+          section_name,
+          Courses(
+            course_name
+          ),
+          AcademicYear(
+            year_name
+          )
+        )`,
+        )
+        .eq("student_email", user);
+
+      return data;
+    } else {
+      // if isStudent is false, then fetch teacher details
+      const { data } = await supabase
+        .from("TeacherSubject")
+        .select(
+          `
+          Teachers!inner(
+            teacher_name,
+            teacher_email
+          ),
+          Subjects!inner(
+            subject_name
+          ),
+          Sections!inner(
+            section_name,
+            Courses(
+              course_name
+            ),
+            AcademicYear(
+              year_name
+            )
+          )
+          `,
+        )
+        .eq("Teachers.teacher_email", user);
+
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// add all the sections of a teacher into sections(Array<string>)
+export async function concatTeacherSections(teacher_data: teacher_type) {
+  const section_array = [];
+  for (let i = 0; i < teacher_data?.length; i++) {
+    section_array.push(teacher_data[0].Sections.section_name);
+  }
+  return section_array;
 }
