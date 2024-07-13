@@ -4,7 +4,8 @@ const TeacherHome = () => {
   useEffect(() => {
     document.title = "Teacher";
   });
-  return <div>Teacher Home</div>;
+
+  return <>Teacher Home</>;
 };
 
 export default TeacherHome;
