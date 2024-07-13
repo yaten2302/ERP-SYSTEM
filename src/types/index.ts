@@ -1,4 +1,4 @@
-export type student = {
+export type student_type = {
   name: string;
   email: string;
   enrollment_number: number;
@@ -7,7 +7,7 @@ export type student = {
   section_name: string;
 };
 
-export type teacher = {
+export type teacher_type = {
   name: string;
   email: string;
   section_name: Array<string>;
