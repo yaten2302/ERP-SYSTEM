@@ -122,8 +122,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         course_name: getStudentFromDB[0].Sections.Courses.course_name,
       });
 
-      //console.log(getStudentFromDB);
-
       return true;
     } else {
       setIsStudent(false);
@@ -142,8 +140,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         academic_year: getTeacherFromDB[0].Sections.AcademicYear.year_name,
         subject_name: getTeacherFromDB[0].Subjects.subject_name,
       });
-
-      //console.log(getTeacherFromDB);
 
       return false;
     }
