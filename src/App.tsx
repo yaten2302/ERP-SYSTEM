@@ -2,7 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import AuthLayout from "./_auth/AuthLayout";
 import SigninForm from "./_auth/forms/SigninForm";
 import RootLayout from "./_root/RootLayout";
-import { Attendance, Sharing, StudentHome, TeacherHome } from "./_root/pages";
+import {
+  Attendance,
+  Settings,
+  Sharing,
+  StudentHome,
+  TeacherHome,
+} from "./_root/pages";
 import "./index.css";
 import { Toaster } from "./components/ui/toaster";
 
@@ -20,6 +26,7 @@ function App() {
           <Route path="/teacher" element={<TeacherHome />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/sharing" element={<Sharing />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/student" element={<StudentHome />} />
         </Route>
       </Routes>
